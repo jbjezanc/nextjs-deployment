@@ -1,10 +1,12 @@
+import PostsGrid from '../posts/posts-grid';
+
 import classes from './featured-posts.module.css';
 
-export default function FeaturedPosts() {
+export default function FeaturedPosts({ posts }) {
   return (
     <section className={classes.latest}>
       <h2>Featured Posts</h2>
-      TODO: A list of posts
+      <PostsGrid posts={posts} />
     </section>
   );
 }
