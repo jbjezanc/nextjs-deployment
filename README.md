@@ -38,3 +38,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Rendering Custom HTML Elements with React Markdown
+In the next two lectures, we'll fine-tune ReactMarkdown to overwrite some default HTML elements it renders.
+
+Unfortunately, since I recorded these lectures, ReactMarkdown received a major update and the shown syntax changed slightly (i.e. what will be shown in the next two lectures has to change).
+
+But thankfully, only minor adjustments are needed.
+
+This link here shows the differences between all the code we'll write in the next lectures and adjustments that will be needed for React Markdown v6: https://github.com/mschwarzmueller/nextjs-course-code/compare/3b99cd0...a9fb64b
+
+So when we write code that is marked as "red" in the linked document, you should switch to the "green" version instead (when using ReactMarkdown v6 - check your package.json file to find out which version you're using).
