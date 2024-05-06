@@ -26,7 +26,6 @@ export default function PostContent({ post }) {
 
       if (node.children[0].tagName === 'img') {
         const image = node.children[0];
-        console.log(image);
 
         return (
           <div className={classes.image}>
@@ -43,12 +42,20 @@ export default function PostContent({ post }) {
       return <p>{paragraph.children}</p>;
     },
 
-    code(code) {
-      const { language, value } = code;
-      return (
-        <SyntaxHighlighter style={atomDark} language={language}>
-          {value}
+    code(props) {
+      const { children, className, node, ...rest } = props;
+      const match = /language-(\w+)/.exec(className || '');
+      return match ? (
+        <SyntaxHighlighter
+          {...rest}
+          PreTag="div"
+          language={match[1]}
+          style={atomDark}
+        >
+          {String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
+      ) : (
+        <code {...rest} className={className}></code>
       );
     },
   };
