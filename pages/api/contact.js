@@ -24,7 +24,12 @@ export default async function handler(req, res) {
     };
 
     let client;
-    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.23kgquy.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority&appName=${process.env.mongodb_clustername}`;
+    let connectionString;
+    if (process.env.NODE_ENV === 'production') {
+      connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTERNAME}.23kgquy.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority&appName=${process.env.MONGODB_CLUSTERNAME}`;
+    } else {
+      connectionString = 'mongodb://localhost:37017/blog';
+    }
     try {
       client = new MongoClient(connectionString);
       await client.connect();
