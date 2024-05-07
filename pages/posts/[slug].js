@@ -35,6 +35,6 @@ export function getStaticProps({ params }) {
     props: {
       post: postData,
     },
-    revalidate: 600, // here, revalidate makes sense, updated markdown will be available in 10 minutes from the update
+    revalidate: 600,
   };
 }
