@@ -38,12 +38,12 @@ export default async function handler(req, res) {
       const result = await db.collection('messages').insertOne(newMessage);
       newMessage._id = result.insertedId;
     } catch (error) {
-      client.close();
+      await client.close();
       res.status(500).json({ message: 'Storing message failed!' });
       return;
     }
 
-    client.close();
+    await client.close();
 
     res
       .status(201)
